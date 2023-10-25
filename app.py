@@ -44,7 +44,8 @@ if selected == 'Overall':
         yaxis_title="stars", 
         yaxis=dict(range=[0, 5]),
         title_x=0.4,
-        showlegend=False
+        showlegend=False,
+        dragmode=False
         )
     st.plotly_chart(fig, use_container_width=True)
 
@@ -61,6 +62,7 @@ if selected == 'Overall':
     fig = px.pie(n_branches, values='n_branches', names='bank', title=f'Market Share - {metro}')
     fig.update_layout(
         title_x=0.4,
+        dragmode=False
         # margin=dict(t=50, b=50, l=200, r=50)
         )
     st.plotly_chart(fig, use_container_width=True)
@@ -99,7 +101,8 @@ if selected == 'Branch Report':
             yaxis_title="stars", 
             yaxis=dict(range=[0, 5]),
             title_x=0.4,
-            showlegend=True
+            showlegend=True,
+            dragmode=False
             )
         st.plotly_chart(fig, use_container_width=True)
 
