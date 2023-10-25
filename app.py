@@ -21,7 +21,7 @@ selected = option_menu(
     default_index=0,
     options=['Overall', 'Branch Report'],
     orientation='horizontal',
-    icons=['graph-up', 'pin-map'],
+    icons=['bank', 'clipboard-data'],
     styles= {'container': {
                 'font-size': '12px'
     }}
@@ -62,7 +62,7 @@ if selected == 'Overall':
     fig = px.pie(n_branches, values='n_branches', names='bank', title=f'Market Share - {metro}')
     fig.update_layout(
         title_x=0.4,
-        dragmode=False
+        dragmode=False,
         # margin=dict(t=50, b=50, l=200, r=50)
         )
     st.plotly_chart(fig, use_container_width=True)
