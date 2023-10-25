@@ -61,7 +61,7 @@ if selected == 'Overall':
     fig = px.pie(n_branches, values='n_branches', names='bank', title=f'Market Share - {metro}')
     fig.update_layout(
         title_x=0.4,
-        margin=dict(t=50, b=50, l=200, r=50)
+        # margin=dict(t=50, b=50, l=200, r=50)
         )
     st.plotly_chart(fig, use_container_width=True)
 
