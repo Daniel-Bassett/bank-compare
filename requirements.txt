@@ -1,2 +1,3 @@
 streamlit_option_menu
 pandas
+plotly_express
