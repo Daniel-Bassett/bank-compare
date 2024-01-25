@@ -7,8 +7,8 @@ from st_files_connection import FilesConnection
 # Create connection object and retrieve file contents.
 # Specify input format is a csv and to cache the result for 600 seconds.
 conn = st.connection('gcs', type=FilesConnection)
-branches_df = conn.read("euroleader-bucket/branches.csv", input_format="csv", ttl=600)
-reviews_df = conn.read("euroleader-bucket/reviews.csv", input_format="csv", ttl=600)
+branches_df = conn.read("euroleader-bucket/bank-compare/branches.csv", input_format="csv", ttl=600)
+reviews_df = conn.read("euroleader-bucket/bank-compare/reviews.csv", input_format="csv", ttl=600)
 
 @st.cache_data
 def load_data(filepath):
