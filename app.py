@@ -2,13 +2,20 @@ import pandas as pd
 import plotly_express as px
 import streamlit as st
 from streamlit_option_menu import option_menu
+from st_files_connection import FilesConnection
+
+# Create connection object and retrieve file contents.
+# Specify input format is a csv and to cache the result for 600 seconds.
+conn = st.connection('gcs', type=FilesConnection)
+branches_df = conn.read("euroleader-bucket/branches.csv", input_format="csv", ttl=600)
+
 
 @st.cache_data
 def load_data(filepath):
     return pd.read_csv(filepath)
 
 
-branches_df = load_data('processed_data/branches.csv')
+# branches_df = load_data('processed_data/branches.csv')
 reviews_df = load_data('processed_data/reviews.csv')
 merged_df = pd.merge(reviews_df, branches_df, left_on='branch_id', right_on='branch_id')[['branch_id', 'stars', 'review_x', 'bank', 'address', 'metro', 'year']]
 merged_df = merged_df.rename(columns={'review_x': 'reviews'})
